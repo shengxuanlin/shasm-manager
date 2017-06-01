@@ -1,11 +1,15 @@
 <template>
     <div class="header">
         <div style="float: left">
-            <Menu mode="horizontal" active-name="1" width="auto" @on-select="onSelect" style="position: absolute;width: 100%;">
+            <Menu mode="horizontal" width="auto" @on-select="onSelect" style="position: absolute;width: 100%;">
                 <img src="../../assets/logo.png" class="layout-logo">
                 <div class="layout-assistant">
-                    <Menu-item name="/project">项目管理</Menu-item>
-                    <Menu-item name="/">用户管理</Menu-item>
+                    <Menu-item name="project">
+                        <router-link to="/layout/project">项目管理</router-link>
+                    </Menu-item>
+                    <Menu-item name="user">
+                        <router-link to="/layout/user">用户管理</router-link>
+                    </Menu-item>
                 </div>
             </Menu>
         </div>
@@ -36,7 +40,7 @@
         name: 'NavHeader',
         methods: {
             onSelect (name) {
-                this.$router.push(name);
+                //this.$router.push(name);
             }
         }
     }

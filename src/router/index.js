@@ -1,20 +1,27 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Manager from '../views/layout'
-import Project from '../views/project/project.vue'
 import Login from '../views/login/login.vue'
+import Layout from '../views/layout'
+import Project from '../views/project/project'
+import User from '../views/user/user'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [{
         path: '/',
-        name: 'Manager',
-        component: Manager
+        redirect: '/layout/project'
     }, {
-        path: '/project',
-        name: 'Project',
-        component: Project
+        path: '/layout',
+        name: 'Layout',
+        component: Layout,
+        children: [{
+            path: 'project',
+            component: Project
+        }, {
+            path: 'user',
+            component: User
+        }]
     }, {
         path: '/login',
         name: 'Login',
