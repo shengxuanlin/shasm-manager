@@ -2,13 +2,6 @@
     <div class="layout">
         <NavHeader/>
         <AppMain/>
-        <Row>
-            <i-col span="24">
-                <div class="layout-copy">
-                    2011-2016 &copy; TalkingData
-                </div>
-            </i-col>
-        </Row>
     </div>
 </template>
 <script>
@@ -33,12 +26,8 @@
         background: #eeeeee;
     }
 
-    .layout-content-main {
-        padding: 10px;
-    }
-
     .layout-copy {
-        margin-top: 10px;
+        margin-bottom: 10px;
         text-align: center;
         padding: 10px 0 20px;
         background: #f5f5f5;

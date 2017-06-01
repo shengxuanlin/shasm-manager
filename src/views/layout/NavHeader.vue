@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div style="float: left">
-            <Menu mode="horizontal" active-name="1" width="auto" @on-select="onSelect">
+            <Menu mode="horizontal" active-name="1" width="auto" @on-select="onSelect" style="position: absolute;width: 100%;">
                 <img src="../../assets/logo.png" class="layout-logo">
                 <div class="layout-assistant">
                     <Menu-item name="/project">项目管理</Menu-item>
@@ -44,6 +44,7 @@
 
 <style>
     .header {
+        border-width: 1px;
         background: #ffffff;
         position: fixed;
         top: 0;
@@ -53,7 +54,6 @@
     }
 
     .layout-assistant {
-        width: 300px;
         margin-left: 200px;
         height: inherit;
     }
