@@ -83,7 +83,7 @@
 </template>
 
 <script>
-    import {getUserListPage, getProjects} from 'api/api';
+    import {find, findAll} from 'api/project';
 
     export default {
         data() {
@@ -99,13 +99,20 @@
                     desc: ''
                 },
                 ruleValidate: {
-                    name: [
-                        {required: true, message: '姓名不能为空', trigger: 'blur'}
-                    ],
-                    mail: [
-                        {required: true, message: '邮箱不能为空', trigger: 'blur'},
-                        {type: 'email', message: '邮箱格式不正确', trigger: 'blur'}
-                    ],
+                    name: [{
+                        required: true,
+                        message: '姓名不能为空',
+                        trigger: 'blur'
+                    }],
+                    mail: [{
+                        required: true,
+                        message: '邮箱不能为空',
+                        trigger: 'blur'
+                    }, {
+                        type: 'email',
+                        message: '邮箱格式不正确',
+                        trigger: 'blur'
+                    }],
                     city: [
                         {required: true, message: '请选择城市', trigger: 'change'}
                     ],
@@ -220,27 +227,13 @@
             handleNodeClick(data) {
                 console.log(data);
             },
-            //获取用户列表
-            getUser: function () {
-                let para = {
-                    page: this.page,
-                    name: this.filters.name
-                };
-                this.loading = true;
-                getUserListPage(para).then((res) => {
-                    this.total1 = res.data.total;
-                    this.gridData = res.data.users;
-                    this.loading = false;
-                });
-            },
             getProjects: function () {
-                getProjects().then((res) => {
-                    this.treeData = res.data.projects;
+                findAll().then((data) => {
+                    this.treeData = data;
                 });
             }
         },
         mounted() {
-            this.getUser();
             this.getProjects();
         }
     };

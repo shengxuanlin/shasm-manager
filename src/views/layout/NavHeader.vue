@@ -4,10 +4,10 @@
             <Menu mode="horizontal" width="auto" @on-select="onSelect" style="position: absolute;width: 100%;">
                 <img src="../../assets/logo.png" class="layout-logo">
                 <div class="layout-assistant">
-                    <Menu-item name="project">
+                    <Menu-item name="/layout/project">
                         项目管理
                     </Menu-item>
-                    <Menu-item name="user">
+                    <Menu-item name="/layout/user">
                         用户管理
                     </Menu-item>
                 </div>
@@ -40,7 +40,7 @@
         name: 'NavHeader',
         methods: {
             onSelect (name) {
-                //this.$router.push(name);
+                this.$router.push(name);
             }
         }
     }
