@@ -5,10 +5,10 @@
                 <img src="../../assets/logo.png" class="layout-logo">
                 <div class="layout-assistant">
                     <Menu-item name="project">
-                        <router-link to="/layout/project">项目管理</router-link>
+                        项目管理
                     </Menu-item>
                     <Menu-item name="user">
-                        <router-link to="/layout/user">用户管理</router-link>
+                        用户管理
                     </Menu-item>
                 </div>
             </Menu>

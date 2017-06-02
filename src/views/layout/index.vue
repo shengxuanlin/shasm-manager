@@ -23,16 +23,6 @@
 <style scoped>
     .layout {
         border: 1px solid #d7dde4;
-        background: #eeeeee;
     }
-
-    .layout-copy {
-        margin-bottom: 10px;
-        text-align: center;
-        padding: 10px 0 20px;
-        background: #f5f5f5;
-        z-index: 1000;
-    }
-
 
 </style>

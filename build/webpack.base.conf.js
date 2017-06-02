@@ -29,8 +29,9 @@ module.exports = {
             'components': path.resolve(__dirname, '../src/components'),
             'views': path.resolve(__dirname, '../src/views'),
             'styles': path.resolve(__dirname, '../src/styles'),
-            'utils': path.resolve(__dirname, '../src/utils')/*,
-            'store': path.resolve(__dirname, '../src/store'),
+            'utils': path.resolve(__dirname, '../src/utils'),
+            'api': path.resolve(__dirname, '../src/api')
+            /*'store': path.resolve(__dirname, '../src/store'),
             'router': path.resolve(__dirname, '../src/router'),
             'mock': path.resolve(__dirname, '../src/mock'),
             'vendor': path.resolve(__dirname, '../src/vendor'),

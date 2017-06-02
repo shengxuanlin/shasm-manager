@@ -10,16 +10,18 @@
     }
 </script>
 
-<style>
-    @import "assets/css/public.css";
+<style lang="scss">
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+    }
 
     #app {
-        font-family: "Helvetica Neue", "PingFang SC", Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin: 0 auto;
-        min-width: 1200px;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 100%;
     }
 </style>
