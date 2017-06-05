@@ -3,10 +3,9 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve(dir) {
+function resolve (dir) {
     return path.join(__dirname, '..', dir)
 }
-var src = path.resolve(__dirname, '../src');
 
 module.exports = {
     entry: {
@@ -32,14 +31,23 @@ module.exports = {
             'utils': path.resolve(__dirname, '../src/utils'),
             'api': path.resolve(__dirname, '../src/api')
             /*'store': path.resolve(__dirname, '../src/store'),
-            'router': path.resolve(__dirname, '../src/router'),
-            'mock': path.resolve(__dirname, '../src/mock'),
-            'vendor': path.resolve(__dirname, '../src/vendor'),
-            'static': path.resolve(__dirname, '../static')*/
+             'router': path.resolve(__dirname, '../src/router'),
+             'mock': path.resolve(__dirname, '../src/mock'),
+             'vendor': path.resolve(__dirname, '../src/vendor'),
+             'static': path.resolve(__dirname, '../static')*/
         }
     },
     module: {
         rules: [
+            {
+                test: /\.(js|vue)$/,
+                loader: 'eslint-loader',
+                enforce: 'pre',
+                include: [resolve('src'), resolve('test')],
+                options: {
+                    formatter: require('eslint-friendly-formatter')
+                }
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',

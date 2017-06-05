@@ -3,27 +3,23 @@
  */
 
 import axios from 'axios'
-import {categoryFind} from './category'
+import { categoryFind } from './category'
 
-axios.defaults.baseURL = 'http://localhost:8080/project-webapp';
+axios.defaults.baseURL = 'http://localhost:8080/project-webapp'
 
-export const find = params => {
-    return axios.get(`/projects`, {params: params});
-};
+export const find = params => axios.get('/projects', { params })
 
-export const findAll = () => {
-    return axios.all([find(), categoryFind()]).then(
-        axios.spread(function (projectResponse, categoryResponse) {
-            let projectData = projectResponse.data;
-            let categoryData = categoryResponse.data;
-            for (var value of projectData) {
-                let result = categoryData.filter(data => data.projectId = value.id);
+export const findAll = () => axios.all([find(), categoryFind()]).then(
+        axios.spread((projectResponse, categoryResponse) => {
+            const projectData = projectResponse.data
+            const categoryData = categoryResponse.data
+            for (const value of projectData) {
+                const result = categoryData.filter(data => data.projectId = value.id)
                 if (result != null && result.length > 0) {
-                    value.children = result;
+                    value.children = result
                 }
             }
-            return new Promise((resolve, reject) => {
-                resolve(projectData);
-            });
-        }));
-};
+            return new Promise(resolve => {
+                resolve(projectData)
+            })
+        }))

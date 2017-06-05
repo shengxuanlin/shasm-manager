@@ -83,7 +83,7 @@
 </template>
 
 <script>
-    import {find, findAll} from 'api/project';
+    import { findAll } from 'api/project'
 
     export default {
         data() {
@@ -113,29 +113,65 @@
                         message: '邮箱格式不正确',
                         trigger: 'blur'
                     }],
-                    city: [
-                        {required: true, message: '请选择城市', trigger: 'change'}
-                    ],
+                    city: [{
+                        required: true,
+                        message: '请选择城市',
+                        trigger: 'change'
+                    }],
                     gender: [
-                        {required: true, message: '请选择性别', trigger: 'change'}
+                        {
+                            required: true,
+                            message: '请选择性别',
+                            trigger: 'change'
+                        }
                     ],
                     interest: [
-                        {required: true, type: 'array', min: 1, message: '至少选择一个爱好', trigger: 'change'},
-                        {type: 'array', max: 2, message: '最多选择两个爱好', trigger: 'change'}
+                        {
+                            required: true,
+                            type: 'array',
+                            min: 1,
+                            message: '至少选择一个爱好',
+                            trigger: 'change'
+                        },
+                        {
+                            type: 'array',
+                            max: 2,
+                            message: '最多选择两个爱好',
+                            trigger: 'change'
+                        }
                     ],
                     date: [
-                        {required: true, type: 'date', message: '请选择日期', trigger: 'change'}
+                        {
+                            required: true,
+                            type: 'date',
+                            message: '请选择日期',
+                            trigger: 'change'
+                        }
                     ],
                     time: [
-                        {required: true, type: 'date', message: '请选择时间', trigger: 'change'}
+                        {
+                            required: true,
+                            type: 'date',
+                            message: '请选择时间',
+                            trigger: 'change'
+                        }
                     ],
                     desc: [
-                        {required: true, message: '请输入个人介绍', trigger: 'blur'},
-                        {type: 'string', min: 20, message: '介绍不能少于20字', trigger: 'blur'}
+                        {
+                            required: true,
+                            message: '请输入个人介绍',
+                            trigger: 'blur'
+                        },
+                        {
+                            type: 'string',
+                            min: 20,
+                            message: '介绍不能少于20字',
+                            trigger: 'blur'
+                        }
                     ]
                 },
-
-                addFormVisible: false,//新增界面是否显示
+                /* 新增界面是否显示 */
+                addFormVisible: false,
                 filters: {
                     name: ''
                 },
@@ -164,7 +200,7 @@
                         key: 'action',
                         width: 150,
                         align: 'center',
-                        render: (h, params) => {
+                        render(h) {
                             return h('div', [
                                 h('Button', {
                                     props: {
@@ -204,8 +240,8 @@
             };
         },
         methods: {
-            handleSubmit (name) {
-                this.$refs[name].validate((valid) => {
+            handleSubmit(name) {
+                this.$refs[name].validate(valid => {
                     if (valid) {
                         this.$Message.success('提交成功!');
                     } else {
@@ -213,22 +249,22 @@
                     }
                 })
             },
-            handleReset (name) {
+            handleReset(name) {
                 this.$refs[name].resetFields();
             },
-            //显示新增界面
-            handleAdd: function () {
+            /* 显示新增界面 */
+            handleAdd() {
                 this.addFormVisible = true;
             },
-            handleChange(index){
+            handleChange(index) {
                 this.page = index;
                 this.getUser();
             },
             handleNodeClick(data) {
                 console.log(data);
             },
-            getProjects: function () {
-                findAll().then((data) => {
+            getProjects() {
+                findAll().then(data => {
                     this.treeData = data;
                 });
             }
@@ -236,10 +272,5 @@
         mounted() {
             this.getProjects();
         }
-    };
+    }
 </script>
-
-<style>
-
-
-</style>

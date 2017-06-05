@@ -39,7 +39,7 @@
     export default {
         name: 'NavHeader',
         methods: {
-            onSelect (name) {
+            onSelect(name) {
                 this.$router.push(name);
             }
         }

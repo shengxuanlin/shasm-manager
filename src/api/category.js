@@ -3,6 +3,6 @@
  */
 import axios from 'axios'
 
-export const categoryFind = params => {
-    return axios.get(`/categories`, {params: params});
-};
+export const categoryFind = params => axios.get('/categories', {
+    params
+})

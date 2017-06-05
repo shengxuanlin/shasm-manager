@@ -16,7 +16,6 @@
 </template>
 
 <script>
-    //import NProgress from 'nprogress'
     export default {
         data() {
             return {
@@ -26,11 +25,17 @@
                     checkPass: '123456'
                 },
                 rules2: {
-                    account: [
-                        {required: true, message: '请输入账号', trigger: 'blur'},
-                    ],
+                    account: [{
+                        required: true,
+                        message: '请输入账号',
+                        trigger: 'blur'
+                    }],
                     checkPass: [
-                        {required: true, message: '请输入密码', trigger: 'blur'},
+                        {
+                            required: true,
+                            message: '请输入密码',
+                            trigger: 'blur'
+                        }
                     ]
                 },
                 checked: true
@@ -40,12 +45,9 @@
             handleReset2() {
                 this.$refs.ruleForm2.resetFields();
             },
-            handleSubmit2(ev) {
-                var _this = this;
-                this.$refs.ruleForm2.validate((valid) => {
-                    if (valid) {
-
-                    } else {
+            handleSubmit2() {
+                this.$refs.ruleForm2.validate(valid => {
+                    if (!valid) {
                         console.log('error submit!!');
                         return false;
                     }
@@ -53,8 +55,8 @@
             }
         }
     }
-
 </script>
+
 
 <style lang="scss" scoped>
     .login-container {

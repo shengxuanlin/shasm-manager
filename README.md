@@ -1,4 +1,4 @@
-# vue-portal
+# shasm-manager
 
 > A Vue.js project
 

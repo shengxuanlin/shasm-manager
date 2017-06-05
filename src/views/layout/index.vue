@@ -4,16 +4,17 @@
         <AppMain/>
     </div>
 </template>
+
 <script>
-    import NavHeader from './NavHeader.vue';
-    import AppMain from './AppMain.vue';
+    import NavHeader from './NavHeader.vue'
+    import AppMain from './AppMain.vue'
     export default {
         components: {
             NavHeader,
             AppMain
         },
         methods: {
-            onSelect (name) {
+            onSelect(name) {
                 this.$router.push(name);
             }
         }
@@ -24,5 +25,4 @@
     .layout {
         border: 1px solid #d7dde4;
     }
-
 </style>
