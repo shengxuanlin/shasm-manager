@@ -3,7 +3,7 @@
  */
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import { StandardData } from './data/resource'
+import { OrganizationData, StandardData } from './data/resource'
 
 export default {
     /**
@@ -11,10 +11,23 @@ export default {
      */
     bootstrap() {
         const mock = new MockAdapter(axios)
-        mock.onGet('/standards').reply(() => new Promise(resolve => {
+        mock.onGet('/standards').reply(config => new Promise(resolve => {
+            const name = config.name;
+            const items = StandardData.filter(item => {
+                if (name && item.name !== name) return false
+                return true;
+            })
             setTimeout(() => {
                 resolve([200, {
-                    standards: StandardData
+                    standards: items
+                }])
+            }, 1000)
+        }))
+
+        mock.onGet('/organizations').reply(() => new Promise(resolve => {
+            setTimeout(() => {
+                resolve([200, {
+                    organizations: OrganizationData
                 }])
             }, 1000)
         }))

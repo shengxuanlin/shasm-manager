@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 
-const data = Mock.mock({
+const StandardData = Mock.mock({
     'data|8': [
         {
             id: Mock.Random.guid(),
@@ -13,9 +13,35 @@ const data = Mock.mock({
                 '时态数据服务',
                 'OGC',
                 '其他'
-            ]
+            ],
+            'children|1-8': [{
+                name: Mock.Random.cname(),
+                icon: Mock.Random.image('150x150')
+            }]
         }
     ]
-})
-const StandardData = data.data
-export { StandardData }
+}).data
+
+const OrganizationData = Mock.mock({
+    'data|8': [
+        {
+            id: Mock.Random.guid(),
+            'name|+1': [
+                '国土资源',
+                '地质灾害',
+                '矿产资源',
+                '行政区划',
+                '教育',
+                '地理设施',
+                '公共服务',
+                '其他'
+            ],
+            'children|1-8': [{
+                name: Mock.Random.cname(),
+                icon: Mock.Random.image('150x150')
+            }]
+        }
+    ]
+}).data
+
+export { StandardData, OrganizationData }

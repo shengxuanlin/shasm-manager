@@ -1,13 +1,13 @@
 <template>
     <el-row>
         <el-col :span="5">
-            <Menu theme="light" :open-names="['1']" accordion>
+            <Menu theme="light" :open-names="['1']" accordion @on-select="standardItemSelect">
                 <Submenu name="1">
                     <template slot="title">
                         <Icon type="ios-paper"></Icon>
                         标准分类
                     </template>
-                    <Menu-item v-for="item in standards" :key="item.id">
+                    <Menu-item :name="item.name" v-for="(item, index) in standards" :key="item.id">
                         {{ item.name }}
                     </Menu-item>
                 </Submenu>
@@ -16,220 +16,52 @@
                         <Icon type="ios-people"></Icon>
                         组织机构
                     </template>
-                    <Menu-item name="2-1">新增用户</Menu-item>
-                    <Menu-item name="2-2">活跃用户</Menu-item>
+                    <Menu-item :name="item.name" v-for="(item, index) in organizations" :key="item.id">
+                        {{ item.name }}
+                    </Menu-item>
                 </Submenu>
             </Menu>
         </el-col>
         <el-col :span="19">
-            <el-row>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-            </el-row>
-            <el-row>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-            </el-row>
-            <el-row>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-            </el-row>
-            <el-row>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-                <el-col :span="6">
-                    <el-card class="box-card">
-                        <div slot="header" class="clearfix">
-                            <span style="line-height: 36px;">卡片名称</span>
-                            <el-button style="float: right;" type="primary">操作按钮</el-button>
-                        </div>
-                        <div v-for="o in 4" :key="o" class="text item">
-                            {{'列表内容 ' + o }}
-                        </div>
-                    </el-card>
-                </el-col>
-            </el-row>
+            <transition name="fade" mode="out-in">
+                <router-view></router-view>
+            </transition>
         </el-col>
     </el-row>
 </template>
 <script>
-    import { getStandards } from 'api/resource'
+    import { getStandards, getOrganizations } from 'api/resource'
     export default {
         data() {
             return {
                 activeName: '1',
-                standards: []
+                standards: [],
+                organizations: []
             };
         },
         methods: {
             getStandardData() {
                 getStandards().then(response => {
-                    console.log(response);
-                    console.log(response.data);
-                    console.log(response.data.standards);
                     this.standards = response.data.standards;
+                });
+            },
+            getOrganizationData() {
+                getOrganizations().then(response => {
+                    this.organizations = response.data.organizations;
+                });
+            },
+            standardItemSelect(n) {
+                this.$router.push({
+                    name: 'resourceList',
+                    params: {
+                        name: n
+                    }
                 });
             }
         },
         mounted() {
             this.getStandardData();
+            this.getOrganizationData();
         }
     }
 </script>
