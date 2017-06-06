@@ -10,6 +10,9 @@
                     <Menu-item name="/layout/user">
                         用户管理
                     </Menu-item>
+                    <Menu-item name="/layout/resource">
+                        资源管理
+                    </Menu-item>
                 </div>
             </Menu>
         </div>

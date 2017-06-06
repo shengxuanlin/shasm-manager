@@ -5,7 +5,7 @@
 import axios from 'axios'
 import { categoryFind } from './category'
 
-axios.defaults.baseURL = 'http://localhost:8080/project-webapp'
+/* axios.defaults.baseURL = 'http://localhost:8080/project-webapp' */
 
 export const find = params => axios.get('/projects', { params })
 

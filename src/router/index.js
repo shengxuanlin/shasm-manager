@@ -4,6 +4,7 @@ import Login from '../views/login/login.vue'
 import Layout from '../views/layout'
 import Project from '../views/project/project'
 import User from '../views/user/user'
+import Resource from '../views/resource/resource'
 
 Vue.use(Router)
 
@@ -21,6 +22,9 @@ export default new Router({
         }, {
             path: 'user',
             component: User
+        }, {
+            path: 'resource',
+            component: Resource
         }]
     }, {
         path: '/login',
